@@ -7,59 +7,47 @@
     <title>Document</title>
   </head>
   <body>
-    <article id="dyr">
-      <h3></h3>
-      <h4></h4>
-      <p></p>
-      <img src="" alt="" />
-    </article>
+    <section id="liste"></section>
 
     <script>
-      document.addEventListener("DOMContentLoaded", article);
-      function article() {
-        console.log("DOM loaded");
-      }
+      document.addEventListener("DOMContentLoaded", start);
 
       let dyr = [
         {
           Navn: "Gris",
           Type: "Pattedyr",
           Levested: "Svinefarm",
-          Billede: "http://mabe-kea.dk/E19/pics/pig.png",
         },
         {
           Navn: "Frø",
           Type: "Amfibie",
           Levested: "Vand",
-          Billede: "http://mabe-kea.dk/E19/pics/frog.png",
         },
         {
           Navn: "Ræv",
           Type: "Pattedyr",
           Levested: "Skove",
-          Billede: "http://mabe-kea.dk/E19/pics/fox.png",
         },
         {
           Navn: "Sild",
           Type: "Fisk",
           Levested: "Vand",
-          Billede: "http://mabe-kea.dk/E19/pics/sild.jpg",
         },
         {
           Navn: "Krokodille",
           Type: "Krybdyr",
           Levested: "Floder",
-          Billede: "http://mabe-kea.dk/E19/pics/kroko.jpg",
         },
       ];
       console.log(dyr);
 
-      const destination = document.querySelector("#dyr");
-      // const dyr = `${dyr.Navn} ${dyr.Type} ${dyr.Billede} ${dyr.Levested}`;
-      destination.querySelector("h3").textContent = dyr.Navn;
-      destination.querySelector("h4").textContent = dyr.Type;
-      destination.querySelector("p").textContent = dyr.Levested;
-      destination.querySelector("img").src = dyr.Billede;
+      function start() {
+        console.log("DOM loaded");
+        const listevisning = document.querySelector("#liste");
+        dyr.forEach((dyr) => {
+          listevisning.innerHTML += `<p>${dyr.Navn} ${dyr.Type} ${dyr.Levested}</p>`;
+        });
+      }
     </script>
   </body>
 </html>
